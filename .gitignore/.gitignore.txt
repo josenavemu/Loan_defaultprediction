@@ -1,0 +1,100 @@
+# ==============================
+# Python
+# ==============================
+
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environment
+.venv/
+venv/
+env/
+ENV/
+
+# ==============================
+# Jupyter Notebook
+# ==============================
+
+.ipynb_checkpoints/
+
+# ==============================
+# VS Code
+# ==============================
+
+.vscode/
+*.code-workspace
+
+# ==============================
+# Python tools
+# ==============================
+
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ==============================
+# Data
+# ==============================
+
+# Raw datasets
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.xls
+
+# Generated processed data
+data/processed/*.npy
+
+# ==============================
+# Models
+# ==============================
+
+models/*.pkl
+models/*.joblib
+
+# ==============================
+# Outputs
+# ==============================
+
+outputs/*.png
+outputs/*.csv
+outputs/*.txt
+outputs/*.json
+
+# ==============================
+# Logs
+# ==============================
+
+logs/*
+*.log
+
+# ==============================
+# Artifacts
+# ==============================
+
+artifacts/*
+
+# ==============================
+# MLflow
+# ==============================
+
+mlruns/
+mlflow.db
+mlflow.db-journal
+
+# ==============================
+# OS files
+# ==============================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ==============================
+# Environment / secrets
+# ==============================
+
+.env
+.env.*
+!.env.example
