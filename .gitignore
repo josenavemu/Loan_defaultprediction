@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environments
+.venv/
+venv/
+env/
+ENV/
+
+# Jupyter and editors
+.ipynb_checkpoints/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.vscode/
+*.code-workspace
+
+# Data
+data/raw/*.csv
+data/raw/*.xlsx
+data/raw/*.xls
+data/processed/*.npy
+
+# Keep dataset for GitHub Actions
+!data/raw/Loan_Default.csv
+
+# Models
+models/*.pkl
+models/*.joblib
+
+# Outputs
+outputs/*.png
+outputs/*.csv
+outputs/*.txt
+outputs/*.json
+
+# Logs
+logs/*
+*.log
+
+# MLflow and artifacts
+artifacts/*
+mlruns/
+mlflow.db
+mlflow.db-journal
+
+# Secrets and OS files
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db
+desktop.ini

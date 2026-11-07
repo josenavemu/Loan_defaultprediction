@@ -1,0 +1,54 @@
+name: Loan Default Prediction - Lab 8 CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  loan-default-pipeline:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+          cache-dependency-path: requirements.txt
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install pandas numpy scikit-learn imbalanced-learn matplotlib seaborn joblib
+
+      - name: Check dataset
+        run: |
+          test -f data/raw/Loan_Default.csv
+          echo "Dataset found successfully"
+
+      - name: Run Lab 5 to Lab 7 ML pipeline
+        run: |
+          python pipelines/run_lab7.py
+
+      - name: Upload pipeline reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: loan-default-lab8-reports
+          path: |
+            outputs/lab7_pipeline_report.json
+            outputs/lab7_inference_results.json
+            outputs/model_comparison.csv
+            outputs/best_model_report.txt
+          if-no-files-found: warn
